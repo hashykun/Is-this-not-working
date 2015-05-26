@@ -6,7 +6,7 @@ public class Player : MonoBehaviour {
 
 	public float moveSpeed = 15;
 	public float gravity = -70;
-	public float jumpVelocity = 550;
+	public float jumpVelocity = 16;
 
 	Light jetLight;
 	Vector3 velocity;
