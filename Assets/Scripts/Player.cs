@@ -6,6 +6,7 @@ public class Player : MonoBehaviour {
 
 	public float moveSpeed = 15;
 	public float gravity = -70;
+	public float jumpVelocity = 16;
 	public float jumpVelocity = 550;
 
 	Light jetLight;
@@ -45,14 +46,14 @@ public class Player : MonoBehaviour {
 		jetLight.intensity = 0;
 
 		jetpackFlare = GameObject.FindGameObjectWithTag ("jetpackFlare");
-	
+
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 
 		if(playercontroller.collisions.above || playercontroller.collisions.below) {
-	
+
 			velocity.y = 0;
 
 		}
@@ -66,7 +67,7 @@ public class Player : MonoBehaviour {
 			velocity.y = (velocity.y<-10)?-10:velocity.y;
 			velocity.y += 2;
 			if (velocity.y > 16) { velocity.y = 16; }
-			jetpackParticles.emissionRate = 200;
+			jetpackParticles.emissionRate = 500;
 			jetLight.intensity = Random.Range(1f,1.5f);
 			jetpackFlare.SetActive(true);
 			float xScale = Random.Range (1f, 2f);
@@ -108,7 +109,7 @@ public class Player : MonoBehaviour {
 		}
 
 		if(playercontroller.collisions.left || playercontroller.collisions.right) {
-			
+
 			velocity.x = 0f;
 			velocityXSmoothing = 0f;
 		}
@@ -138,7 +139,7 @@ public class Player : MonoBehaviour {
 
 
 		playercontroller.Move(velocity*Time.deltaTime);
-	
+
 
 
 
